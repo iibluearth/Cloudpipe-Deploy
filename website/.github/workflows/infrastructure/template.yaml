@@ -19,6 +19,6 @@ PublicAccessBlockConfiguration:
         Version: '2012-10-17'
         Statement:
          - Effect: 'Allow'
-            Principal: '*'
+            Principal: "*"
             Action: 's3:GetObject'
             Resource: !Sub 'arn:aws:s3:::${cloudpipe-website-kk}/*'
