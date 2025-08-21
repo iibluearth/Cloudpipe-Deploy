@@ -20,5 +20,7 @@ Resources:
         Statement:
           - Sid: 'PublicReadGetObject'
             Effect: Allow
+            Principal:
+              AWS: "*"
             Action: 's3:GetObject'
             Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
