@@ -8,18 +8,17 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: 'index.html'
 
-PublicAccessBlockConfiguration:
-  RestrictPublicBuckets: false
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: false
 
   BucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
-      Bucket: !Ref cloudpipe-website-kk
+      Bucket: !Ref S3Bucket
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
-         - Effect: 'Allow'
-            Principal:
-              AWS: "*"
+         - Effect: Allow
+            Principal: "*"
             Action: 's3:GetObject'
             Resource: !Sub 'arn:aws:s3:::${cloudpipe-website-kk}/*'
