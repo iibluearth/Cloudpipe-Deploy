@@ -14,11 +14,11 @@ Resources:
   BucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
-      Bucket: !Ref cloudpipe-website-kk-123
+      Bucket: !Ref S3Bucket
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
           - Sid: 'PublicReadGetObject'
             Effect: Allow
             Action: 's3:GetObject'
-            Resource: !Sub 'arn:aws:s3:::${cloudpipe-website-kk-123}/*'
+            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
