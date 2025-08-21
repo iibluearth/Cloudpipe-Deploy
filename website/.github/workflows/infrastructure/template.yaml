@@ -4,7 +4,7 @@ Resources:
   S3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: 'cloudpipe-website-kk'
+      BucketName: 'cloudpipe-website-kk-123'
       WebsiteConfiguration:
         IndexDocument: 'index.html'
 
@@ -14,11 +14,11 @@ Resources:
   BucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
-      Bucket: !Ref S3Bucket
+      Bucket: !Ref cloudpipe-website-kk-123
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
           - Sid: 'PublicReadGetObject'
             Effect: Allow
             Action: 's3:GetObject'
-            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+            Resource: !Sub 'arn:aws:s3:::${cloudpipe-website-kk-123}/*'
