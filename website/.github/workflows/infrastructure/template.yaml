@@ -18,6 +18,7 @@ Resources:
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
-         - Effect: Allow
-            Action: 's3:GetObject'
-            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+          - Sid: 'PublicReadGetObject'
+              Effect: Allow
+              Action: 's3:GetObject'
+              Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
