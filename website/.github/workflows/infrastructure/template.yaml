@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Static website hosting on S3'
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: 'cloudpipe-website-kk'
+      WebsiteConfiguration:
+        IndexDocument: 'index.html'
+
+PublicAccessBlockConfiguration:
+  RestrictPublicBuckets: false
+
+  BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref cloudpipe-website-kk
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: 'PublicReadGetObject'
+          Effect: 'Allow'
+          Principal: '*'
+          Action: 's3:GetObject'
+          Resource: !Sub 'arn:aws:s3::${cloudpipe-website-kk}/*'
